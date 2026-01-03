@@ -150,6 +150,7 @@
 
 .google-slider {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 4px;
     background: #dfe1e5;
