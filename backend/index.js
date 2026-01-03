@@ -5,9 +5,8 @@ require("@mapbox/mbtiles").registerProtocols(tilelive);
 const fs = require("fs");
 const path = require("path");
 
-// --- KHAI BÁO APP (ĐÂY LÀ DÒNG BẠN BỊ THIẾU) ---
 const app = express();
-app.use(cors()); // Cho phép React truy cập
+app.use(cors()); 
 
 // --- CẤU HÌNH ---
 const PORT = 3000;
@@ -22,7 +21,6 @@ async function loadAllMBTiles() {
         MBTILES_SOURCES[year] = {}; // Tạo object rỗng cho năm đó
 
         // 1. Load File LOW (Toàn cảnh)
-        // Đường dẫn: backend/mbtiles/2017_low.mbtiles
         const lowPath = path.resolve(__dirname, `mbtiles/${year}_low.mbtiles`);
         if (fs.existsSync(lowPath)) {
             try {
@@ -36,7 +34,6 @@ async function loadAllMBTiles() {
         }
 
         // 2. Load File HIGH (Chi tiết)
-        // Đường dẫn: backend/mbtiles/2017_high.mbtiles
         const highPath = path.resolve(__dirname, `mbtiles/${year}_high.mbtiles`);
         if (fs.existsSync(highPath)) {
             try {

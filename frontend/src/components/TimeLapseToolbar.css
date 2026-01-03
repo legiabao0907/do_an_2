@@ -68,16 +68,16 @@
     cursor: pointer;
     color: #5f6368;
     min-width: 32px;
-    /* Changed from fixed width to min-width */
+    /* Changed from fixed width to min-width -> Chuyển từ độ rộng cố định sang min-width */
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
     border-radius: 16px;
-    /* Changed specific radius for pill shape support */
+    /* Changed specific radius for pill shape support -> Bo tròn dạng viên thuốc */
     padding: 0 8px;
-    /* Added padding */
+    /* Added padding -> Thêm padding */
 }
 
 
@@ -147,6 +147,7 @@
 }
 
 /* --- INPUT RANGE (SLIDER) --- */
+
 .google-slider {
     -webkit-appearance: none;
     width: 100%;

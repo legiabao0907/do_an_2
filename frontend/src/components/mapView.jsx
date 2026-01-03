@@ -168,7 +168,7 @@ const RightYearSelector = ({ years, activeYear, onYearChange }) => {
     );
 };
 
-// --- COMPONENT: MANUAL SWIPE SLIDER ---
+// --- COMPONENT: THANH TRƯỢT KÉO THẢ THỦ CÔNG ---
 const ManualSwipeControl = ({ position, onChange }) => {
     const isDragging = useRef(false);
     const containerRef = useRef(null);
@@ -218,11 +218,11 @@ const ManualSwipeControl = ({ position, onChange }) => {
                 position: 'absolute',
                 top: 0, bottom: 0,
                 left: `${position * 100}%`,
-                width: '6px', // Thicker
-                background: '#4cc9f0', // Cyan color for visibility
+                width: '6px', // Dày hơn
+                background: '#4cc9f0', // Màu xanh cyan cho dễ nhìn
                 zIndex: 10000,
                 cursor: 'ew-resize',
-                boxShadow: '0 0 8px rgba(0,0,0,0.8), 0 0 0 1px white' // Stronger shadow + stroke
+                boxShadow: '0 0 8px rgba(0,0,0,0.8), 0 0 0 1px white' // Đổ bóng đậm + viền trắng
             }}
             onMouseDown={handleDown}
             onTouchStart={handleDown}
@@ -231,7 +231,7 @@ const ManualSwipeControl = ({ position, onChange }) => {
             <div style={{
                 position: 'absolute', top: '50%', left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '40px', height: '40px', // Larger
+                width: '40px', height: '40px', // Lớn hơn
                 background: '#4cc9f0', borderRadius: '50%',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 boxShadow: '0 4px 8px rgba(0,0,0,0.4)',
@@ -244,9 +244,8 @@ const ManualSwipeControl = ({ position, onChange }) => {
     );
 };
 
-// --- COMPONENT: CLIP LAYER HANDLER ---
+// --- COMPONENT: XỬ LÝ CẮT LAYER (CLIP) ---
 // Component này lắng nghe thay đổi của slider và cập nhật CSS clip-path cho pane bên phải
-// --- COMPONENT: CLIP LAYER HANDLER ---
 const SwipeClipHandler = ({ position, rightPaneName }) => {
     const map = useMap();
 
@@ -271,7 +270,7 @@ const SwipeClipHandler = ({ position, rightPaneName }) => {
             const rightBound = (mapSize.x * 2) - offset.x;
             const bottomBound = (mapSize.y * 2) - offset.y;
 
-            // Polygon points: Top-Left -> Top-Right -> Bottom-Right -> Bottom-Left
+            // Các điểm Polygon: Top-Left -> Top-Right -> Bottom-Right -> Bottom-Left
             // TL: (localX, localY)
             // TR: (rightBound, localY)
             // BR: (rightBound, bottomBound)
@@ -280,7 +279,7 @@ const SwipeClipHandler = ({ position, rightPaneName }) => {
             pane.style.clipPath = `polygon(${localX}px ${localY}px, ${rightBound}px ${localY}px, ${rightBound}px ${bottomBound}px, ${localX}px ${bottomBound}px)`;
         };
 
-        // Initial update
+        // Cập nhật lần đầu
         updateClip();
 
         // Cập nhật khi map di chuyển (pan/zoom) hoặc resize

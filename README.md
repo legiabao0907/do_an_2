@@ -1,12 +1,30 @@
-# React + Vite
+# Dự Án Bản Đồ Số (Web GIS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dự án hiển thị bản đồ raster tile theo thời gian, hỗ trợ so sánh (Swipe Map) giữa các năm dữ liệu.
 
-Currently, two official plugins are available:
+## Hướng dẫn cài đặt và chạy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Chuẩn bị dữ liệu
+File dữ liệu `*.mbtiles` cần được đặt vào thư mục:
+`backend/mbtiles/`
 
-## Expanding the ESLint configuration
+(Lưu ý: Do kích thước file lớn, chúng không được upload lên GitHub. Bạn cần copy thủ công vào thư mục này).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Chạy Backend (Server API)
+Mở terminal tại thư mục `backend` và chạy:
+```bash
+npm run dev2
+```
+Server sẽ chạy tại: `http://localhost:3000`
+
+### 3. Chạy Frontend (Giao diện bản đồ)
+Mở một terminal **mới** tại thư mục `frontend` và chạy:
+```bash
+npm run dev
+```
+Truy cập web tại: `http://localhost:5173` (hoặc port hiển thị trên màn hình).
+
+## Tính năng chính
+- **Time Lapse**: Xem bản đồ theo từng năm (2017, 2023, 2025).
+- **Swipe Map**: Chế độ so sánh, kéo trượt để xem sự thay đổi giữa 2 năm bất kỳ.
+- **Layers**: Hỗ trợ 2 mức độ phân giải (Low/High) tự động chuyển đổi theo mức zoom.
